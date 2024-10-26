@@ -1,34 +1,22 @@
 -- phpMyAdmin SQL Dump
 -- version 4.4.11
 -- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Jan 12, 2016 at 10:47 PM
--- Server version: 5.5.46-0ubuntu0.14.04.2
--- PHP Version: 5.5.9-1ubuntu4.14
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Database: `library`
 --
-CREATE DATABASE IF NOT EXISTS `library` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `library` 
+DEFAULT CHARACTER 
+SET latin1 
+COLLATE latin1_swedish_ci;
 USE `library`;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `books`
---
-
-CREATE TABLE IF NOT EXISTS `books` (
+-- Table = BOOK
+CREATE TABLE IF NOT EXISTS `book` (
   `book_id` int(11) NOT NULL,
   `title` varchar(1000) NOT NULL,
   `author` varchar(1000) NOT NULL,
@@ -38,23 +26,13 @@ CREATE TABLE IF NOT EXISTS `books` (
   `added_at_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `book_categories`
---
-
-CREATE TABLE IF NOT EXISTS `book_categories` (
+-- Table = BOOK_CATEGORY
+CREATE TABLE IF NOT EXISTS `book_category` (
   `id` int(5) NOT NULL,
   `category` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `book_issue`
---
-
+-- Table = BOOK_ISSUE
 CREATE TABLE IF NOT EXISTS `book_issue` (
   `issue_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
@@ -63,12 +41,7 @@ CREATE TABLE IF NOT EXISTS `book_issue` (
   `added_at_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `book_issue_log`
---
-
+-- Table = BOOK_ISSUE_LOG
 CREATE TABLE IF NOT EXISTS `book_issue_log` (
   `id` int(16) NOT NULL,
   `book_issue_id` int(11) NOT NULL,
@@ -79,23 +52,13 @@ CREATE TABLE IF NOT EXISTS `book_issue_log` (
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `branches`
---
-
+-- Table = BRANCHES
 CREATE TABLE IF NOT EXISTS `branches` (
   `id` int(5) NOT NULL,
   `branch` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `students`
---
-
+-- Table = STUDENTS
 CREATE TABLE IF NOT EXISTS `students` (
   `student_id` int(11) NOT NULL,
   `first_name` varchar(512) NOT NULL,
