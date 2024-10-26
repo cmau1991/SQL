@@ -1,7 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.4.11
--- http://www.phpmyadmin.net
-
+-- SQL and Data Project - Code First Girls
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,8 +11,6 @@ SET latin1
 COLLATE latin1_swedish_ci;
 USE `library`;
 
-
--- Table = BOOK
 CREATE TABLE IF NOT EXISTS `book` (
   `book_id` int(11) NOT NULL,
   `title` varchar(1000) NOT NULL,
@@ -26,13 +21,11 @@ CREATE TABLE IF NOT EXISTS `book` (
   `added_at_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = BOOK_CATEGORY
 CREATE TABLE IF NOT EXISTS `book_category` (
   `id` int(5) NOT NULL,
   `category` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = BOOK_ISSUE
 CREATE TABLE IF NOT EXISTS `book_issue` (
   `issue_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
@@ -41,7 +34,6 @@ CREATE TABLE IF NOT EXISTS `book_issue` (
   `added_at_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = BOOK_ISSUE_LOG
 CREATE TABLE IF NOT EXISTS `book_issue_log` (
   `id` int(16) NOT NULL,
   `book_issue_id` int(11) NOT NULL,
@@ -52,13 +44,11 @@ CREATE TABLE IF NOT EXISTS `book_issue_log` (
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = BRANCHES
 CREATE TABLE IF NOT EXISTS `branches` (
   `id` int(5) NOT NULL,
   `branch` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = STUDENTS
 CREATE TABLE IF NOT EXISTS `students` (
   `student_id` int(11) NOT NULL,
   `first_name` varchar(512) NOT NULL,
@@ -73,14 +63,12 @@ CREATE TABLE IF NOT EXISTS `students` (
   `email_id` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = STUDENT_CATEGORY
 CREATE TABLE IF NOT EXISTS `student_category` (
   `cat_id` int(2) NOT NULL,
   `category` varchar(512) NOT NULL,
   `max_allowed` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Table = USERS
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -90,96 +78,52 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Indexes for table `books`
+-- Primary Key addition
 ALTER TABLE `books`
   ADD PRIMARY KEY (`book_id`);
 
---
--- Indexes for table `book_categories`
---
 ALTER TABLE `book_categories`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `book_issue`
---
 ALTER TABLE `book_issue`
   ADD PRIMARY KEY (`issue_id`);
 
---
--- Indexes for table `book_issue_log`
---
 ALTER TABLE `book_issue_log`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `branches`
---
 ALTER TABLE `branches`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `students`
---
 ALTER TABLE `students`
   ADD PRIMARY KEY (`student_id`);
 
---
--- Indexes for table `student_categories`
---
 ALTER TABLE `student_categories`
   ADD PRIMARY KEY (`cat_id`);
 
---
--- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `books`
---
+-- AUTO_INCREMENT
 ALTER TABLE `books`
   MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `book_categories`
---
+
 ALTER TABLE `book_categories`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `book_issue`
---
+
 ALTER TABLE `book_issue`
   MODIFY `issue_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `book_issue_log`
---
+
 ALTER TABLE `book_issue_log`
   MODIFY `id` int(16) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `branches`
---
+
 ALTER TABLE `branches`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `students`
---
+
 ALTER TABLE `students`
   MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `student_categories`
---
+
 ALTER TABLE `student_categories`
   MODIFY `cat_id` int(2) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `users`
---
+
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
