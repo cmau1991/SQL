@@ -73,24 +73,14 @@ CREATE TABLE IF NOT EXISTS `students` (
   `email_id` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `student_categories`
---
-
-CREATE TABLE IF NOT EXISTS `student_categories` (
+-- Table = STUDENT_CATEGORY
+CREATE TABLE IF NOT EXISTS `student_category` (
   `cat_id` int(2) NOT NULL,
   `category` varchar(512) NOT NULL,
   `max_allowed` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
+-- Table = USERS
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -100,13 +90,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
-
---
 -- Indexes for table `books`
---
 ALTER TABLE `books`
   ADD PRIMARY KEY (`book_id`);
 
